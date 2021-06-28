@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { jsx } from "@emotion/react";
+import React from "react";
 
 export function Button(props: { text: string }) {
   const { text } = props;
@@ -57,7 +58,7 @@ export function Select<T>({
   );
 }
 
-export function TextArea({ labelText }: { labelText: string }) {
+export function TextArea({ labelText, value, onChange }: { labelText: string, value: string, onChange: (a: React.ChangeEvent<HTMLTextAreaElement>) => void }) {
   return (
     <div css={{ display: "flex", flexFlow: "column nowrap", marginTop: 16 }}>
       <label
@@ -79,6 +80,8 @@ export function TextArea({ labelText }: { labelText: string }) {
           backgroundColor: "#0b0f0e",
           color: "white",
         }}
+        value={value}
+        onChange={onChange}
       ></textarea>
     </div>
   );
